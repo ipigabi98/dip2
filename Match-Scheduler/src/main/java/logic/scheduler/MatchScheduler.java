@@ -99,23 +99,8 @@ public class MatchScheduler {
             addHardAndSoftConstraints();
             setObjective();
 
-            /*System.out.println("TUNE STARTED");
-            this.model.tune();
-            System.out.println("GET BEST PARAMS");
-            this.model.getTuneResult(0);
-            System.out.println("OPTIMIZE/WRITE");
-            this.model.write("optimized.prm");*/
-
             this.model.read("files/parameters/optimized.prm");
             this.model.optimize();
-
-            //this.model.write("test8.lp");
-
-            //print();
-
-            /*printTable();
-            writeResultToFile();
-            printNotSatisfiedConstraints();*/
 
             ValidatorFileMaker fileMaker = new ValidatorFileMaker(this.variableByMatch);
             byte[] result = fileMaker.writeXMLResult();
